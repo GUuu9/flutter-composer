@@ -1,0 +1,12 @@
+node_modules/
+.fvm/
+.dart_tool/
+build/
+.env
+.DS_Store
+
+/project/*
+!/project/.gitkeep
+
+# 개인별 VS Code 작업 영역
+/flutter-composer.local.code-workspace

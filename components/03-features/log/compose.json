@@ -1,0 +1,13 @@
+{
+  "id": "log",
+  "dependencies": {},
+  "androidPermissions": [],
+  "iosDescriptions": {},
+  "integration": {
+    "class": "LogService",
+    "field": "logService",
+    "import": "services/log/log_service.dart",
+    "dispose": false
+  },
+  "version": "0.1.0"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "android",
+  "platforms": [
+    "android"
+  ],
+  "replace": [],
+  "nativeOverrides": [
+    "android/settings.gradle.kts",
+    "android/gradle/wrapper/gradle-wrapper.properties",
+    "android/app/build.gradle.kts"
+  ]
+}

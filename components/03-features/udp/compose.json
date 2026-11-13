@@ -1,0 +1,19 @@
+{
+  "id": "udp",
+  "dependencies": {},
+  "androidPermissions": [
+    {
+      "name": "android.permission.INTERNET"
+    }
+  ],
+  "iosDescriptions": {
+    "NSLocalNetworkUsageDescription": "같은 네트워크의 사용자가 선택한 장치와 데이터를 교환합니다."
+  },
+  "integration": {
+    "class": "UdpService",
+    "field": "udpService",
+    "import": "services/udp/udp_service.dart",
+    "dispose": true
+  },
+  "version": "0.1.0"
+}

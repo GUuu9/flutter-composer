@@ -1,0 +1,11 @@
+{
+  "id": "flutter",
+  "replace": [
+    "lib/main.dart",
+    "pubspec.yaml",
+    "analysis_options.yaml"
+  ],
+  "remove": [
+    "test/widget_test.dart"
+  ]
+}

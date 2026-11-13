@@ -1,0 +1,42 @@
+{
+  "id": "ble",
+  "dependencies": {
+    "universal_ble": "1.0.0"
+  },
+  "androidPermissions": [
+    {
+      "name": "android.permission.BLUETOOTH",
+      "maxSdkVersion": "30"
+    },
+    {
+      "name": "android.permission.BLUETOOTH_ADMIN",
+      "maxSdkVersion": "30"
+    },
+    {
+      "name": "android.permission.ACCESS_COARSE_LOCATION",
+      "maxSdkVersion": "28"
+    },
+    {
+      "name": "android.permission.ACCESS_FINE_LOCATION",
+      "maxSdkVersion": "30"
+    },
+    {
+      "name": "android.permission.BLUETOOTH_SCAN",
+      "usesPermissionFlags": "neverForLocation"
+    },
+    {
+      "name": "android.permission.BLUETOOTH_CONNECT"
+    }
+  ],
+  "iosDescriptions": {
+    "NSBluetoothAlwaysUsageDescription": "사용자가 선택한 주변 BLE 기기를 검색하고 연결하여 데이터를 교환합니다.",
+    "NSBluetoothPeripheralUsageDescription": "사용자가 선택한 주변 BLE 기기를 검색하고 연결하여 데이터를 교환합니다."
+  },
+  "integration": {
+    "class": "BleService",
+    "field": "bleService",
+    "import": "services/ble/ble_service.dart",
+    "dispose": true
+  },
+  "version": "0.1.0"
+}

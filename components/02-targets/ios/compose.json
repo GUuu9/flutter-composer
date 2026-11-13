@@ -1,0 +1,12 @@
+{
+  "id": "ios",
+  "platforms": [
+    "ios"
+  ],
+  "replace": [],
+  "nativeOverrides": [
+    "ios/Runner.xcodeproj/project.pbxproj",
+    "ios/Podfile",
+    "ios/Flutter/AppFrameworkInfo.plist"
+  ]
+}

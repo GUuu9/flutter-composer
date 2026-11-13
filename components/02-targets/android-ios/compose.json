@@ -1,0 +1,20 @@
+{
+  "id": "android-ios",
+  "platforms": [
+    "android",
+    "ios"
+  ],
+  "replace": [],
+  "includeFiles": [
+    "02-targets/android",
+    "02-targets/ios"
+  ],
+  "nativeOverrides": [
+    "android/settings.gradle.kts",
+    "android/gradle/wrapper/gradle-wrapper.properties",
+    "android/app/build.gradle.kts",
+    "ios/Runner.xcodeproj/project.pbxproj",
+    "ios/Podfile",
+    "ios/Flutter/AppFrameworkInfo.plist"
+  ]
+}
