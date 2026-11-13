@@ -1,4 +1,4 @@
-<!-- version: v2.0.1 -->
+<!-- version: v2.1.0 -->
 # 조립 구조·검사·버전 관리
 
 입력/검증/계획/공식 생성/overlay/플랫폼 설정/상태 기록은 scripts/compose.dart가 담당합니다. 구성품은 compose.json·files/이며 공식 SDK의 전체 플랫폼 파일을 Composer에서 재구현하지 않습니다. 단독 플랫폼의 사용자 문서는 해당 target에만 둡니다.
@@ -67,3 +67,12 @@ versions.json의 초기 값은 사용자 동작 확인 조합입니다. 앱 READ
 기능 files/docs/04-features.md는 원본 저장소 탐색용 연결 문서입니다. 앱에는 중앙 수동 안내를 포함하며 기능 문서는 docs/features/만 복사하므로 원본용 연결 파일로 앱 안내를 덮어쓰지 않습니다. 원본/반출 문서 링크를 각각 검사합니다.
 
 실패 시 터미널과 생성된 .composer/state.json의 failure에 오류 종류·관련 경로·OS 오류 코드/JSON 위치를 남깁니다. 파일/JSON 본문·프로세스 인자/환경 변수·알 수 없는 오류의 원문은 기록하지 않습니다. StateError는 생성기에서 만든 안전한 안내만 사용합니다. 앱 생성 전 실패는 출력/state가 없음을 안내하며 진단 저장까지 실패하면 별도로 알립니다.
+
+## Workspace 도구
+
+`scripts/workspace.dart`는 생성기와 별개로 project/의 실제 하위 폴더를 나열하고 선택한 앱과 Composer를 `flutter-composer.local.code-workspace`에 상대 경로로 기록합니다. 숨김/링크 폴더는 제외하고 기존 파일은 교체 확인을 받습니다. 선택 후 경로와 기존 내용을 다시 확인하며 임시 파일 작성 후 교체합니다. 앱 소스·Git·환경은 변경하지 않습니다. 외부 프로그램이 최종 확인과 교체 사이에 파일을 변경하는 동시 실행은 피합니다.
+
+```bash
+# Composer 루트: 임시 폴더에서 선택·취소·교체·잘못된 입력·앱 파일 보존 검사
+fvm dart run test/workspace_check.dart
+```

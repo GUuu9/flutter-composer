@@ -1,4 +1,4 @@
-<!-- version: v2.1.2 -->
+<!-- version: v2.2.0 -->
 # Flutter Composer v0.0.0
 
 현재 구성을 v0.0.0의 새 Git 기준으로 시작합니다. 문서 버전과 구성품 구현 버전은 Composer 기준 버전과 별도로 관리합니다.
@@ -41,6 +41,17 @@ fvm flutter run -d 기기ID
 ```
 
 Ctrl+C로 종료합니다. 빈 화면이 정상입니다. 앱 Git은 앱 폴더에서 별도로 초기화하고 실제 생성한 pubspec.lock·.fvmrc·versions.json·소스/설정·상태를 보관합니다. Composer의 Git에는 project 앱을 추가하지 않습니다.
+
+## VS Code workspace
+
+Composer 루트에서 실행하고 `project/`의 프로젝트 번호를 쉼표로 선택합니다. Enter는 취소이며 기존 workspace는 확인 후 교체합니다.
+
+```bash
+# flutter-composer/에서 실행
+fvm dart run scripts/workspace.dart
+```
+
+생성된 `flutter-composer.local.code-workspace`를 VS Code의 **파일 → 파일에서 작업 영역 열기**로 엽니다. Composer와 선택한 프로젝트가 각각 루트로 표시됩니다. 숨김 폴더·심볼릭 링크는 목록에서 제외하며 앱 파일·Git·SDK 설정은 변경하지 않습니다. workspace는 Git에서 제외하는 로컬 파일입니다. 실제 Git 감지·표시는 VS Code의 Git 확장 상태와 설정에 따릅니다.
 
 ## 기능 수동 추가
 

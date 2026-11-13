@@ -1,4 +1,4 @@
-<!-- version: v2.0.1 -->
+<!-- version: v2.1.0 -->
 # Flutter Composer 작업 지침
 
 Android·iOS·android-ios 빈 앱 Composer를 재구성합니다. Dart/FVM 생성기와 공식 Flutter 플랫폼 생성 기반을 구현합니다. 사용자 확인 버전은 versions.json에 고정하고 실제 생성·실행 검증은 별도로 구분합니다. README와 [조립 구조](docs/01-composition.md)를 먼저 읽습니다.
@@ -53,3 +53,7 @@ compose.json의 version은 구성품 구현 SemVer이며 dependencies의 pub 패
 versions.json의 초기 값은 사용자 동작 확인 조합입니다. 앱 README에서 기준과 현재 PC의 실제 선택 버전을 구분하고 정상 동작하면 유지합니다. 오류 발생 시 경로/설치/라이선스/권한 문제부터 구분한 뒤 필요한 도구/SDK/의존성만 변경하는 절차를 제공합니다. 기준 버전·전역 기본값을 자동 갱신하거나 후보 버전을 검증 완료로 표시하지 않습니다. 실제 설정/선택 파일·lock·결과·복귀를 함께 관리하고 사용자 확인과 신규 생성 앱의 검증을 구분합니다.
 
 경로 검사는 실제 경로를 동일한 URI 형식으로 정규화하고 Windows 구분자·대소문자·UNC 및 경로 경계를 확인합니다. 기능별 원본 문서와 반출 문서의 링크를 모두 검사하고 원본용 files/docs/04-features.md 연결 파일로 앱 공통 안내를 덮어쓰지 않습니다. 실패 진단은 오류 종류·경로·코드/위치만 보존하고 파일/JSON 본문·실행 인자·환경 변수를 출력하지 않습니다.
+
+## Workspace 관리
+
+`scripts/workspace.dart`는 Composer와 선택한 project 하위 폴더를 로컬 VS Code workspace로 묶습니다. 번호 선택·취소·기존 파일 교체 확인을 유지하고 실제 디렉터리만 허용합니다. 앱 내부를 읽거나 수정하지 않으며 SDK·Git 초기화·외부 패키지를 요구하지 않습니다. README·구조 문서·test/workspace_check.dart·이력을 함께 관리합니다.
