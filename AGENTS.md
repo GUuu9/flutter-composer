@@ -54,6 +54,31 @@ versions.json의 초기 값은 사용자 동작 확인 조합입니다. 앱 READ
 
 경로 검사는 실제 경로를 동일한 URI 형식으로 정규화하고 Windows 구분자·대소문자·UNC 및 경로 경계를 확인합니다. 기능별 원본 문서와 반출 문서의 링크를 모두 검사하고 원본용 files/docs/04-features.md 연결 파일로 앱 공통 안내를 덮어쓰지 않습니다. 실패 진단은 오류 종류·경로·코드/위치만 보존하고 파일/JSON 본문·실행 인자·환경 변수를 출력하지 않습니다.
 
+## 문서 다이어그램 요청
+
+“현재 구현 기준으로 docs/diagrams의 다이어그램을 기존 구조에 맞춰 갱신해줘.”라는 요청을 받으면 대상 저장소의 코드와, 파일이 있으면 `docs/diagrams/README.md`를 먼저 확인하고 Archify 스킬을 사용합니다. 대상 저장소를 지정하면 그 저장소의 다이어그램에만 적용합니다.
+
+- 기존 `docs/diagrams/`의 기능별 폴더, 파일명, 인덱스 구성과 산출물 형식을 유지합니다. 해당되는 기능의 `candidate.json`과 HTML을 갱신하고, 목록이나 검사 결과가 바뀌면 기존 인덱스·매니페스트·검증 요약에도 반영합니다.
+- 기존 구조나 참조 저장소를 읽을 수 없으면 대상 저장소에 아래 기본 구조로 새로 작성합니다. 전체 구조는 `01-overview`로 두고, 기능별 흐름은 `02-<기능명>`부터 번호와 kebab-case 이름을 붙여 나눕니다.
+
+```text
+docs/diagrams/
+├── README.md
+├── index.html
+├── manifest.json
+├── verification.json
+├── 01-overview/
+│   ├── candidate.json
+│   └── 01-overview.html
+└── 02-<기능명>/
+    ├── candidate.json
+    └── 02-<기능명>.html
+```
+
+- `README.md`에는 열람·재생성 방법을, `index.html`에는 전체 구조와 기능별 그림의 링크를 둡니다. `manifest.json`에는 각 그림의 `slug`, `title`, `summary`, `type`을 기록합니다. `verification.json`에는 그림별 소스 리비전·검사 결과를 기록하고, 생성된 검증 기록은 해당 그림 폴더에 둡니다.
+- 현재 구현을 근거로 작성하고 소스 기준 리비전과 실제 검사 결과를 기록합니다. 다이어그램 생성·검사는 Archify 스킬을 따르며, 실행하지 못한 검사는 미검증으로 남깁니다.
+- 문서 변경과 함께 커밋이나 이전 커밋에 병합하는 작업은 요청에 포함된 경우에 수행합니다.
+
 ## Workspace 관리
 
 `scripts/workspace.dart`는 Composer와 선택한 project 하위 폴더를 로컬 VS Code workspace로 묶습니다. 번호 선택·취소·기존 파일 교체 확인을 유지하고 실제 디렉터리만 허용합니다. 앱 내부를 읽거나 수정하지 않으며 SDK·Git 초기화·외부 패키지를 요구하지 않습니다. README·구조 문서·test/workspace_check.dart·이력을 함께 관리합니다.
