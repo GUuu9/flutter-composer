@@ -1,4 +1,4 @@
-<!-- version: v2.2.0 -->
+<!-- version: v2.3.0 -->
 # Flutter Composer v0.0.0
 
 현재 구성을 v0.0.0의 새 Git 기준으로 시작합니다. 문서 버전과 구성품 구현 버전은 Composer 기준 버전과 별도로 관리합니다.

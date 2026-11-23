@@ -3,6 +3,12 @@
 
 현재 파일 구성을 v0.0.0의 새 Git 기준으로 시작합니다. 이후 변경은 최신순·커밋당 한 항목으로 기록합니다.
 
+## 2026-11-24 — docs(android): JDK 설치·프로젝트 선택 절차 갱신
+
+- Android Studio의 JDK 17 재사용 여부를 먼저 확인하고 macOS Homebrew, Windows Microsoft OpenJDK, Linux Temurin 설치·선택 안내를 맞춥니다.
+- Android SDK 경로를 Windows 기본 위치로 수정하고 JDK 선택 확인을 Gradle Wrapper·Flutter 진단과 연결합니다.
+- 검증: 문서 링크·코드 블록·diff 검사. 설치·Android 빌드는 미검증입니다.
+
 ## 2026-11-13 — feat(workspace): 선택 프로젝트의 VS Code 작업 영역 생성
 
 - Dart workspace 명령으로 Composer와 선택한 프로젝트를 하나의 로컬 작업 영역으로 엽니다.
