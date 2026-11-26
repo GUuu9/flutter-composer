@@ -19,12 +19,18 @@ java -version
 
 ### Windows
 
-Microsoft Build of OpenJDK 17을 설치합니다. 설치 뒤 새 PowerShell을 열고 현재 `java` 경로에서 JDK 루트를 선택해 이 터미널에만 적용합니다. [공식 설치 안내](https://learn.microsoft.com/en-us/java/openjdk/install)
+Microsoft Build of OpenJDK 17을 C 드라이브의 기본 위치에 설치합니다. 설치 뒤 새 PowerShell을 열고 실제 JDK 17 설치 폴더를 이 터미널의 `JAVA_HOME`으로 지정합니다. [공식 설치 안내](https://learn.microsoft.com/en-us/java/openjdk/install)
 
 ```powershell
 winget install --id Microsoft.OpenJDK.17 --exact
-$JavaExe = (Get-Command java -CommandType Application).Source
-$env:JAVA_HOME = Split-Path (Split-Path $JavaExe -Parent) -Parent
+```
+
+새 PowerShell에서 실행합니다.
+
+```powershell
+# 설치된 폴더명을 확인한 뒤 실제 JDK 17 경로로 바꿉니다.
+Get-ChildItem "$env:ProgramFiles\Microsoft" -Directory -Filter 'jdk-17*'
+$env:JAVA_HOME = "$env:ProgramFiles\Microsoft\jdk-17-실제폴더명"
 $env:Path = "$env:JAVA_HOME\bin;$env:Path"
 java -version
 javac -version
@@ -55,7 +61,7 @@ java -version
 adb version
 ```
 
-Windows SDK는 기본 위치를 사용합니다. JAVA_HOME은 위에서 선택한 Microsoft OpenJDK 17 설치 경로입니다.
+Windows Android Studio와 SDK는 C 드라이브의 기본 위치를 사용합니다. SDK Manager의 Android SDK Location을 확인합니다. 아래 예시는 기본 SDK 경로이며, 앱이 D에 있어도 이 SDK 경로는 그대로 사용합니다. JAVA_HOME은 위에서 선택한 Microsoft OpenJDK 17 설치 경로입니다.
 
 ```powershell
 $env:ANDROID_HOME = "$env:LOCALAPPDATA\Android\Sdk"

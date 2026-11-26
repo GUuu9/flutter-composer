@@ -14,12 +14,13 @@ export PATH="$HOME/fvm/bin:$PATH"
 fvm --version
 ```
 
-Windows는 [FVM 공식 설치 안내](https://fvm.app/documentation/getting-started/installation)의 GitHub Releases standalone zip을 OS/CPU에 맞게 받아 D:\Developer\FVM 등에 풀고 fvm 실행 파일이 있는 폴더를 사용자 PATH에 추가합니다. 실제 압축 배치에 따라 경로를 지정합니다.
+Windows에서는 개발 도구와 SDK를 C 드라이브의 기본 경로에 설치합니다. D 드라이브는 앱 소스와 프로젝트 문서를 저장할 때 사용합니다. Chocolatey가 준비되면 관리자 PowerShell에서 FVM을 설치합니다. [FVM 공식 설치 안내](https://fvm.app/documentation/getting-started/installation)
 
 ```powershell
-$env:PATH = "D:\Developer\FVM;" + $env:PATH
-fvm --version
+choco install fvm
 ```
+
+새 PowerShell에서 `Get-Command fvm`과 `fvm --version`으로 설치를 확인합니다. 앱 폴더가 D에 있어도 FVM 실행 파일 경로를 D로 바꾸지 않습니다.
 
 앱 루트의 고정 SDK를 준비합니다. 없으면 아래 명령이 SDK를 다운로드하므로 네트워크와 저장 공간을 먼저 확인합니다.
 
